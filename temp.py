@@ -18,5 +18,6 @@ def is_valid_transition_matrix(transitions):
 		else:
 			print("Transition matrix is well built.")
 
+
 def compute_probabilities(state_space, transitions):
 	pass
