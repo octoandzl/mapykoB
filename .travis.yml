@@ -1,0 +1,20 @@
+sudo: required
+#dist: xenial
+language: python
+virtualenv:
+  system_site_packages: true
+python:
+  - "3.5"
+install:
+- pip install -r requirements.txt
+script:
+- pytest
+- coverage run test/test_mapykoB.py
+after_success: 
+  - coveralls
+after_script: cd ~
+deploy:
+  provider: pypi
+  user: andzl
+  password:
+    secure: Cg+lq1riRUSWSwi0Wzmfi36i5pRgtUgSsdU7rv282Ki7Lnx/O5KJONBhBlXPh+pzS/+WhUgnCMCdSf2Yyzo3FTE4Ju5ki/ha7NZgDdT/sBW5Wj8ckAXCp/gO87R85Y8oAp3PS1A/IY4ktlzbWE8nsmEwi104RRG4zi/rVuJCyX7vPC0zzx8Xv50Zvbzpga4Qo60kUGfiQmw0WgauGS4Jsc/WxcseXbvdSOklNVoAzX1QDnMs3VEMAEKDGTN9LfP6JWM4gnJNXnUBka368+bZsCEurTb3yz2zhC95waA71LUY/11b6STox7U0eKj8qDPNEcLfjeH9grZ+bzSu0EYjXPmQr5lEZY+9Jm45qJGwbwnyKWj+XZCzynFOXv3lPUMEvfjWt7AGJ/Wmca1FMFInPthEuFFhNezsMYAg7puCZBPACcGa7BfYMJB0Bmo+JjeNhOEdsrt4mBMTOT0wQUyiMhJBjgaKfp5UA5O3lUxUMWBnWu5R1I81Wf+8Q0nh2zycS8MjmuOzS9/NXzDSwBt0EMwMdaoDDBOKcnHrZBXDRjN3xzMV+LYlV/teIbQRYp5lfjLKxvBh9KyDbx0Q7Z2nP2jMJjXjlgcgHhrqBMhaZQGM7e3G+1lFvi8vRqAswuqfpZZfpwVLbJDFp7sd+uYiG4ZBMyphCu/V4JGKRBZVA=
