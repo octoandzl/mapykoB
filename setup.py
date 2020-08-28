@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
 
-from distutils.core import setup
+#from distutils.core import setup
+from setuptools import setup
+
 with open("README.rst") as file_object:
     description = file_object.read()
 
