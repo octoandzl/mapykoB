@@ -31,6 +31,8 @@ If you would rather install from source, run the following commands in a termina
 Usage
 *****
 
+An example would be::
+
     $  sample_data = np.array([
     $    [1, 1, 1, 0, 0, 0, 0, 0],
     $    [0, 1, 0, 0, 0, 1, 0, 0],
