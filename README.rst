@@ -2,7 +2,7 @@
 Description
 ***********
 
-This is a litle test package for *testting* Travis on PyPI hosting
+Mapykob is a Python application that provides an easy way to experiment with Markov models. While built for educational purposes, it can both be used for educational or commercial purposes.PyPI hosting
 
 *****
 State
@@ -10,8 +10,6 @@ State
 
 |travis| |coverage| |format| |version| |license| |pyversions| |implementation| |status|
 
-
-Mapykob is a Python application that provides an easy way to experiment with Markov models. While built for educational purposes, it can both be used for educational or commercial purposes.
 
 ************
 Installation
