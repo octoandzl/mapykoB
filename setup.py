@@ -8,7 +8,7 @@ with open("README.rst") as file_object:
     description = file_object.read()
 
 setup(name='mapykoB',
-      version='0.0.2',
+      version='0.0.3',
       author='Andzl',
       author_email='andzlhub@gmail.com',
       url='https://github.com/octoandzl/mapykoB',
