@@ -5,7 +5,7 @@ class hmm_discreet(object):
     """An exemple of discreet Hidden Markov Model. """
 
     def __init__(self, M, X, V):
-        """Initialize a discreet Hidden Markov Model.
+        r"""Initialize a discreet Hidden Markov Model.
 
         Arguments :
             M -- the number of states
@@ -35,7 +35,7 @@ class hmm_discreet(object):
 
     @staticmethod
     def normalized_matrix(m):
-        """Normalize a matrix.
+        r"""Normalize a matrix.
 
         Arguments :
             m -- the matrix to normalize
@@ -50,7 +50,7 @@ class hmm_discreet(object):
 
     @staticmethod
     def random_matrix_normalized(dim1, dim2=0):
-        """Normalize a vector or a matrix.
+        r"""Normalize a vector or a matrix.
 
         Arguments :
             dim1 -- the first dimension of the matrix
@@ -67,7 +67,7 @@ class hmm_discreet(object):
             return m / m.sum(axis=1, keepdims=True)
 
     def compute_alpha(self, seq_idx):
-        """Compute alpha matrix of a given observation sequence.
+        r"""Compute alpha matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -89,7 +89,7 @@ class hmm_discreet(object):
         self.alphas.append(self.alpha.copy())
 
     def compute_alpha_scaled(self, seq_idx):
-        """Compute alpha scaled matrix of a given observation sequence.
+        r"""Compute alpha scaled matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -121,7 +121,7 @@ class hmm_discreet(object):
         self.scales.append(scale)
 
     def compute_p_from_alpha(self, seq_idx):
-        """Compute probability of observing a sequence from alpha.
+        r"""Compute probability of observing a sequence from alpha.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -135,7 +135,7 @@ class hmm_discreet(object):
         return p
 
     def compute_logp_from_alpha(self, seq_idx):
-        """Compute log probability of observing a sequence from alpha.
+        r"""Compute log probability of observing a sequence from alpha.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -148,7 +148,7 @@ class hmm_discreet(object):
         return p
 
     def compute_beta(self, seq_idx):
-        """Compute bêta matrix of a given observation sequence.
+        r"""Compute bêta matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -170,7 +170,7 @@ class hmm_discreet(object):
         self.betas.append(self.beta.copy())
 
     def compute_p_from_beta(self, seq_idx):
-        """Compute probability of observing a sequence from bêta.
+        r"""Compute probability of observing a sequence from bêta.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -185,7 +185,7 @@ class hmm_discreet(object):
         return p
 
     def compute_p_from_alpha_beta(self, t=None):
-        """Compute probability of observing a sequence from alpha and bêta.
+        r"""Compute probability of observing a sequence from alpha and bêta.
 
         Keywords Arguments:
             t -- the time index, Default : None
@@ -201,7 +201,7 @@ class hmm_discreet(object):
         return p
 
     def compute_gamma(self, seq_idx):
-        """Compute gamma matrix of a given observation sequence.
+        r"""Compute gamma matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -217,7 +217,7 @@ class hmm_discreet(object):
             self.gamma[t][:] = (alpha[t][:]*beta[t][:])/p
 
     def compute_gamma_scaled(self, seq_idx):
-        """Compute gamma scaled matrix of a given observation sequence.
+        r"""Compute gamma scaled matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -233,7 +233,7 @@ class hmm_discreet(object):
             self.gamma[t][:] = (alpha[t][:]*beta[t][:])
 
     def compute_xi(self, seq_idx): 
-        """Compute xi matrix of a given observation sequence.
+        r"""Compute xi matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -253,7 +253,7 @@ class hmm_discreet(object):
                         alpha[t, i] * self.A[i, j] * self.B[j, x[t+1]] * beta[t+1, j])/p
 
     def compute_xi_scaled(self, seq_idx):
-        """Compute xi matrix of a given observation sequence.
+        r"""Compute xi matrix of a given observation sequence.
 
         Arguments:
             seq_idx -- the index of the observed sequence
@@ -274,7 +274,7 @@ class hmm_discreet(object):
                         alpha[t, i] * self.A[i, j] * self.B[j, x[t+1]] * beta[t+1, j])/self.scales[seq_idx][t+1]
 
     def reestimate_A(self, n):
-        """Reevaluate A matrix using Baum-Welch re-estimation formulas.
+        r"""Reevaluate A matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             n -- the time index
@@ -293,7 +293,7 @@ class hmm_discreet(object):
         return num, den
 
     def reestimate_A_scaled(self, n):
-        """Reevaluate A matrix using Baum-Welch re-estimation formulas.
+        r"""Reevaluate A matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             n -- the time index
@@ -312,7 +312,7 @@ class hmm_discreet(object):
         return num, den
 
     def reestimate_B(self, n):
-        """Reevaluate B matrix using Baum-Welch re-estimation formulas.
+        r"""Reevaluate B matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             n -- the time index
@@ -332,7 +332,7 @@ class hmm_discreet(object):
         return num, den
 
     def reestimate_B_scaled(self, n):
-        """Reevaluate B matrix using Baum-Welch re-estimation formulas.
+        r"""Reevaluate B matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             n -- the time index
@@ -351,7 +351,7 @@ class hmm_discreet(object):
         return num, den
 
     def Baum_Welch_Algorithm(self,A_init=None,B_init=None,pi_init=None,max_iter=1):
-        """Reevaluate A,B,Pi matrix using Baum-Welch re-estimation formulas.
+        r"""Reevaluate A,B,Pi matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             A_init -- the initial A matrix
@@ -401,7 +401,7 @@ class hmm_discreet(object):
             self.B = num_B / den_B
 
     def Baum_Welch_Algorithm_scaled(self,A_init=None,B_init=None,pi_init=None,max_iter=1):
-        """ eevaluate A,B,Pi matrix using Baum-Welch re-estimation formulas.
+        r""" eevaluate A,B,Pi matrix using Baum-Welch re-estimation formulas.
 
         Arguments:
             A_init -- the initial A matrix
@@ -453,7 +453,7 @@ class hmm_discreet(object):
     
 
     def likelihood(self, x):
-        """Compute likelihood P(x/lambda) given an observed sequence x.
+        r"""Compute likelihood P(x/lambda) given an observed sequence x.
 1
         Arguments :
             x -- the observed sequence
@@ -467,7 +467,7 @@ class hmm_discreet(object):
         return alpha[-1].sum()
 
     def log_likelihood(self, x):
-        """Compute log likelihood log(P(x/lambda)) given an observed sequence x.
+        r"""Compute log likelihood log(P(x/lambda)) given an observed sequence x.
 1
         Arguments :
             x -- the observed sequence
@@ -484,7 +484,7 @@ class hmm_discreet(object):
         return np.log(scale[-1].sum())
 
     def log_likelihood_multi(self, X):
-        """Compute log likelihoods log(P(x/lambda)) given observed sequence x
+        r"""Compute log likelihoods log(P(x/lambda)) given observed sequence x
         of vector X .
 1
         Arguments :
@@ -493,7 +493,7 @@ class hmm_discreet(object):
         return np.array([self.log_likelihood(x) for x in X])
 
     def get_state_sequence(self, x):
-        """Compute Viterbi algorithm in order to get the optimal state sequence .
+        r"""Compute Viterbi algorithm in order to get the optimal state sequence .
 1
         Arguments :
             x -- the observed sequences 
@@ -517,7 +517,7 @@ class hmm_discreet(object):
         return states
 
     def get_state_sequence_scaled(self, x):
-        """Compute Viterbi algorithm in order to get the optimal state sequence .
+        r"""Compute Viterbi algorithm in order to get the optimal state sequence .
 1
         Arguments :
             x -- the observed sequences 
