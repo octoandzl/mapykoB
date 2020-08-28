@@ -1,4 +1,13 @@
-#H1 This is a litle test package for *testting* Travis on PyPI hosting
+***********
+Description
+***********
+
+This is a litle test package for *testting* Travis on PyPI hosting
+
+*****
+State
+*****
+
 |travis| |coverage| |format| |version| |license| |pyversions| |implementation| |status|
 
 
@@ -22,24 +31,24 @@ If you would rather install from source, run the following commands in a termina
 Usage
 *****
 
-    $sample_data = np.array([
-    $  [1, 1, 1, 0, 0, 0, 0, 0],
-    $  [0, 1, 0, 0, 0, 1, 0, 0],
-    $  [0, 0, 0, 0, 0, 1, 0, 1],
-    $  [0, 0, 1, 0, 1, 1, 1, 1],
-    $  [0, 0, 0, 0, 1, 0, 1, 0],
-    $  [0, 1, 0, 0, 1, 1, 0, 1],
-    $  [0, 0, 0, 1, 1, 1, 0, 0]])
+    $  sample_data = np.array([
+    $    [1, 1, 1, 0, 0, 0, 0, 0],
+    $    [0, 1, 0, 0, 0, 1, 0, 0],
+    $    [0, 0, 0, 0, 0, 1, 0, 1],
+    $    [0, 0, 1, 0, 1, 1, 1, 1],
+    $    [0, 0, 0, 0, 1, 0, 1, 0],
+    $    [0, 1, 0, 0, 1, 1, 0, 1],
+    $    [0, 0, 0, 1, 1, 1, 0, 0]])
 
-    $possible_observations = Counter(sample_data[i][j] for i in range(len(sample_data)) for j in range(len(sample_data[i])))
-    $M = 2
-    $V = len(possible_observations)
-    $hmm_discreet = hmm_discreet(M,sample_data,V)
-    $hmm_discreet.pi = np.array([0.5, 0.5])
-    $hmm_discreet.A = np.array([[0.7, 0.3], [0.4, 0.6]])
-    $hmm_discreet.B = np.array([[0.6, 0.4], [0.3, 0.7]])
-    $hmm_discreet.compute_alpha(0)
-    $p = hmm_discreet.compute_p_from_alpha(0)
+    $  possible_observations = Counter(sample_data[i][j] for i in range(len(sample_data)) for j in range(len(sample_data[i])))
+    $  M = 2
+    $  V = len(possible_observations)
+    $  hmm_discreet = hmm_discreet(M,sample_data,V)
+    $  hmm_discreet.pi = np.array([0.5, 0.5])
+    $  hmm_discreet.A = np.array([[0.7, 0.3], [0.4, 0.6]])
+    $  hmm_discreet.B = np.array([[0.6, 0.4], [0.3, 0.7]])
+    $  hmm_discreet.compute_alpha(0)
+    $  p = hmm_discreet.compute_p_from_alpha(0)
 
 
 
