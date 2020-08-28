@@ -1,9 +1,9 @@
 import numpy as np
 
 def generate_random_sequences(N,T):
-	sequences = np.zeros((N,T),np.int32)
+    sequences = np.zeros((N,T),np.int32)
     for i in range(N):
-    	sequence = np.random.choice([0,1], T)
+        sequence = np.random.choice([0,1], T)
         sequences[i] = sequence
     return sequences
 
